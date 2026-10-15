@@ -35,7 +35,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
   >
     <section id="hero" class="border-border border-b pt-8 pb-6">
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        你好，我是 Summer。
       </h1>
       <a
         target="_blank"
@@ -52,22 +52,22 @@ const homePath = getRelativeLocaleUrl(locale, "");
         <span class="sr-only">RSS Feed</span>
       </a>
 
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+      <p class="text-lg leading-8">
+        把研究中的问题想清楚，把实践中的过程记下来。
       </p>
-      <p class="mt-2">
-        Read the blog posts or check{" "}
+      <p class="text-muted-foreground mt-3 leading-8">
+        这里收纳科研笔记、仿真记录与旅行日志。从一个问题出发，留下可以回看的思考与过程。
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
         <LinkButton
-          class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="/posts/"
+          class="bg-accent text-accent-foreground rounded-lg px-5 py-3"
+          >开始阅读 →</LinkButton
         >
-          README
-        </LinkButton>{" "}
-        for more info.
-      </p>
+        <LinkButton href="/projects/" class="rounded-lg border px-5 py-3"
+          >看看我的项目</LinkButton
+        >
+      </div>
       {
         socials.length > 0 && (
           <div class="mt-4 flex max-sm:flex-col sm:items-center">
@@ -80,6 +80,44 @@ const homePath = getRelativeLocaleUrl(locale, "");
       }
     </section>
 
+    <section
+      aria-label="内容栏目"
+      class="grid gap-4 border-b py-8 sm:grid-cols-3"
+    >
+      {
+        [
+          {
+            title: "科研笔记",
+            tag: "research",
+            number: "01",
+            desc: "文献、模型与方法，把问题拆开理解。",
+          },
+          {
+            title: "仿真记录",
+            tag: "simulation",
+            number: "02",
+            desc: "参数、代码与结果，让过程能够复现。",
+          },
+          {
+            title: "旅行日志",
+            tag: "travel",
+            number: "03",
+            desc: "地点、路线与片段，收藏途中的发现。",
+          },
+        ].map(item => (
+          <a
+            href={`/tags/${item.tag}/`}
+            class="hover:border-accent rounded-xl border p-5 transition-colors"
+          >
+            <span class="text-accent text-sm">{item.number}</span>
+            <h2 class="mt-3 text-xl font-semibold">{item.title} ↗</h2>
+            <p class="text-muted-foreground mt-2 text-sm leading-7">
+              {item.desc}
+            </p>
+          </a>
+        ))
+      }
+    </section>
     {
       featuredPosts.length > 0 && (
         <section

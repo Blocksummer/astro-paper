@@ -1,0 +1,49 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Main from "@/components/Main.astro";
+import config from "@/config";
+const projects = [
+  {
+    name: "个人空间",
+    status: "建设中",
+    description: "用一个轻量的静态网站，整理文章、研究笔记与项目入口。",
+    href: "https://github.com/Blocksummer/astro-paper",
+    label: "查看源码",
+  },
+  {
+    name: "旅行地图",
+    status: "待接入",
+    description: "收藏走过的地方与沿途见闻，旅行地图正在整理中。",
+    href: import.meta.env.PUBLIC_TRAVEL_MAP_URL || "",
+    label: "打开旅行地图",
+  },
+];
+---
+
+<Layout title={`项目 | ${config.site.title}`}>
+  <Header />
+  <Main pageTitle="项目" pageDesc="让想法逐渐成为可以使用的东西。">
+    <div class="grid gap-6 py-6">
+      {
+        projects.map(project => (
+          <article class="rounded-xl border p-6">
+            <span class="text-accent text-sm">{project.status}</span>
+            <h2 class="mt-2 text-2xl font-semibold">{project.name}</h2>
+            <p class="my-4 leading-8">{project.description}</p>
+            {project.href && (
+              <a
+                class="text-accent underline underline-offset-4"
+                href={project.href}
+              >
+                {project.label} ↗
+              </a>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </Main>
+  <Footer />
+</Layout>
