@@ -1,6 +1,6 @@
 # Summer 的个人空间
 
-基于 [AstroPaper](https://github.com/satnaing/astro-paper) 的中文个人站点，包含科研笔记、仿真记录、旅行日志和项目展示。保留明暗主题、移动端菜单、标签、归档、RSS 和 Pagefind 搜索。
+基于 [AstroPaper](https://github.com/satnaing/astro-paper) 的中文个人站点，包含科研笔记、仿真记录和项目展示。保留明暗主题、移动端菜单、标签、归档、RSS 和 Pagefind 搜索。
 
 ## 本地运行
 
@@ -26,12 +26,12 @@ pnpm preview
 
 - 站点名称、简介和社交链接：`astro-paper.config.ts`
 - 首页：`src/pages/index.astro`
-- 项目展示与旅行入口：`src/pages/projects.astro`
+- 项目展示：`src/pages/projects.astro`
 - 关于页面：`src/content/pages/about.md`
 - 文章：`src/content/posts/*.md`
 - 中文界面：`src/i18n/lang/zh-CN.ts`
 
-三个栏目按 `research`、`simulation`、`travel` 标签归类。一篇文章可以有多个标签。首批文章明确标注为写作模板，请替换为真实内容；原始英文示例可从 Git 历史或上游仓库查阅。
+当前内容按 `research`、`simulation` 等科研相关标签归类。一篇文章可以有多个标签。首批文章明确标注为写作模板，请替换为真实内容；原始英文示例可从 Git 历史或上游仓库查阅。
 
 新文章示例：
 
@@ -52,8 +52,7 @@ draft: true
 1. 导入这个 GitHub 仓库，选择要部署的分支。
 2. 构建命令：`pnpm build`；输出目录：`dist`。
 3. 环境变量设置 `NODE_VERSION=24`、`SITE_URL=https://你的实际域名/`。
-4. 可选设置 `PUBLIC_TRAVEL_MAP_URL` 为已确认可公开分享的地图地址。未配置时项目页显示“待接入”，不会生成失效入口。
-5. 部署后检查首页、文章、标签、项目、搜索、RSS，以及移动端导航。
+4. 部署后检查首页、文章、标签、项目、搜索、RSS，以及移动端导航。
 
 这是静态站点，也可将 dist 作为 Workers Static Assets 部署。本次代码修改不创建 Cloudflare 项目，也不修改已有域名或访问策略。
 
