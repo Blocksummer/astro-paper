@@ -7,15 +7,17 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
-  --font-app: var(--font-google-sans-code);
+  --font-app:
+    system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    sans-serif;
 }
 
 /* Light theme values */
 :root,
 [data-theme="light"] {
-  --background: #fdfdfd;
+  --background: #faf8f4;
   --foreground: #282728;
-  --accent: #006cac;
+  --accent: #28675b;
   --accent-foreground: #ffffff;
   --muted: #e6e6e6;
   --muted-foreground: #6b7280;
@@ -24,11 +26,11 @@
 
 /* Dark theme values */
 [data-theme="dark"] {
-  --background: #212737;
+  --background: #182421;
   --foreground: #eaedf3;
-  --accent: #ff6b01;
+  --accent: #92cfbc;
   --accent-foreground: #ffffff;
   --muted: #343f60;
   --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --border: #36554b;
 }
